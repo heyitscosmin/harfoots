@@ -1,0 +1,18 @@
+services:
+
+  # Radarr: A fork of Sonarr to work with movies. Automatically monitors and downloads movies, handles quality upgrades, and manages your movie collection with an elegant web interface.
+  radarr:
+    image: ghcr.io/hotio/radarr:latest
+    container_name: ${CONTAINER_PREFIX}radarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK=${UMASK}
+    volumes:
+      - ${CONFIG_PATH}/radarr:/config
+      - ${SSD_PATH}/movies:/data/movies
+      - ${SSD_PATH}/downloads:/data/downloads
+    ports:
+      - 7878:7878
+    restart: ${RESTART_POLICY}

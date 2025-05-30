@@ -1,0 +1,18 @@
+services:
+
+  # Sonarr: Smart PVR for usenet and bittorrent users. Monitors multiple RSS feeds for new TV show episodes, automatically grabbing, sorting, and renaming them.
+  sonarr:
+    image: ghcr.io/hotio/sonarr:latest
+    container_name: ${CONTAINER_PREFIX}sonarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK=${UMASK}
+    volumes:
+      - ${CONFIG_PATH}/sonarr:/config
+      - ${SSD_PATH}/tv:/data/tv
+      - ${SSD_PATH}/downloads:/data/downloads
+    ports:
+      - 8989:8989
+    restart: ${RESTART_POLICY}

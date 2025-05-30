@@ -1,0 +1,18 @@
+services:
+
+  # AdGuard Home: Network-wide ads & trackers blocking DNS server.
+  adguardhome:
+    container_name: ${CONTAINER_PREFIX}adguardhome
+    image: adguard/adguardhome:v0.107.62
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "3000:3000/tcp"
+    volumes:
+      - ${CONFIG_PATH}/adguardhome/conf:/opt/adguardhome/conf
+      - ${CONFIG_PATH}/adguardhome/work:/opt/adguardhome/work
+    environment:
+      - TZ=${TZ}
+    restart: ${RESTART_POLICY}
