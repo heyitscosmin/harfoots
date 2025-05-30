@@ -2,5 +2,7 @@ services:
   cloudflared:
     container_name: ${CONTAINER_PREFIX}cloudflared-web
     image: ghcr.io/wisdomsky/cloudflared-web:latest
+    environment:
+      WEBUI_PORT: 1111
     restart: ${RESTART_POLICY}
     network_mode: host
