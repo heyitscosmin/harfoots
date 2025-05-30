@@ -4,5 +4,7 @@ services:
     image: ghcr.io/wisdomsky/cloudflared-web:latest
     environment:
       WEBUI_PORT: 1111
+    volumes:
+      - ${CONFIG_PATH}/cloudflared/config:/config
     restart: ${RESTART_POLICY}
     network_mode: host
