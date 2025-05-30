@@ -1,0 +1,16 @@
+services:
+
+  # Jellyseerr: A request management and media discovery tool for Jellyfin. Fork of Overseerr with native Jellyfin support.
+  jellyseerr:
+    image: ghcr.io/hotio/jellyseerr:latest
+    container_name: ${CONTAINER_PREFIX}jellyseerr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK=${UMASK}
+    volumes:
+      - ${CONFIG_PATH}/jellyseerr:/config
+    ports:
+      - 5055:5055
+    restart: ${RESTART_POLICY}
