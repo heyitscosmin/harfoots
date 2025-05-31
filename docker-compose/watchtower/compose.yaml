@@ -4,3 +4,4 @@ services:
     container_name: ${CONTAINER_PREFIX}watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    command: --cleanup --debug
