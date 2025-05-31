@@ -13,4 +13,7 @@ services:
       - ${CONFIG_PATH}/jellyseerr:/config
     ports:
       - 5055:5055
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     restart: ${RESTART_POLICY}
