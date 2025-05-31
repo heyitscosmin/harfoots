@@ -9,4 +9,3 @@ services:
       # --debug: Enables debug logging for more verbose output.
       # --schedule "0 0 * * 0": Runs every Sunday at midnight (00:00).
       --cleanup --debug --schedule "0 0 * * 0"
-    restart: ${RESTART_POLICY}
