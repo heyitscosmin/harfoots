@@ -18,3 +18,13 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 256M
+    cpu_shares: 768
+    mem_swappiness: 30

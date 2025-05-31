@@ -16,3 +16,13 @@ services:
     environment:
       - TZ=${TZ}
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    cpu_shares: 256
+    mem_swappiness: 20

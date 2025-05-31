@@ -11,3 +11,12 @@ services:
     volumes:
       - ${CONFIG_PATH}/nginx-proxy-manager/data:/data
       - ${CONFIG_PATH}/nginx-proxy-managerletsencrypt:/etc/letsencrypt
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    cpu_shares: 512

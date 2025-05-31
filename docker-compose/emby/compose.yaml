@@ -15,3 +15,13 @@ services:
     ports:
       - 8096:8096
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    cpu_shares: 1024
+    mem_swappiness: 10
