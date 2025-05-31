@@ -27,4 +27,3 @@ services:
           cpus: '0.2'
           memory: 256M
     cpu_shares: 768
-    mem_swappiness: 30
