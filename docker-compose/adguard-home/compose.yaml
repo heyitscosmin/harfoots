@@ -6,8 +6,8 @@ services:
     image: adguard/adguardhome:v0.107.62
     ports:
       - "8089:80/tcp"
-      - "9443:443/tcp"
-      - "9443:443/udp"
+      - "90443:443/tcp"
+      - "90443:443/udp"
       - "53:53/udp"
       - "53:53/tcp"
       - "853:853/tcp"
