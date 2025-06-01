@@ -18,6 +18,8 @@ services:
       - ${CONFIG_PATH}/adguardhome/work:/opt/adguardhome/work
     environment:
       - TZ=${TZ}
+    cap_add:
+      - NET_ADMIN
     restart: ${RESTART_POLICY}
     deploy:
       resources:
