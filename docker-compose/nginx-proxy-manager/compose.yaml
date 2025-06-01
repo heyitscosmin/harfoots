@@ -10,7 +10,6 @@ services:
     volumes:
       - ${CONFIG_PATH}/nginx-proxy-manager/data:/data
       - ${CONFIG_PATH}/nginx-proxy-managerletsencrypt:/etc/letsencrypt
-    restart: ${RESTART_POLICY}
     deploy:
       resources:
         limits:
