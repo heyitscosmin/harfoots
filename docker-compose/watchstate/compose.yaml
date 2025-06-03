@@ -1,0 +1,11 @@
+services:
+    watchstate:
+        image: ghcr.io/arabcoders/watchstate:latest
+        # To change the user/group id associated with the tool change the following line.
+        user: "${UID:-1000}:${GID:-1000}"
+        container_name: ${CONTAINER_PREFIX}watchstate
+        restart: ${RESTART_POLICY}
+        ports:
+            - "8085:8080" # The port which the webui will be available on.
+        volumes:
+            - ${CONFIG_PATH}/watchstate/data:/config:rw # mount current directory to container /config directory.
