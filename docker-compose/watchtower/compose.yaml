@@ -5,6 +5,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --cleanup --debug
+    environment:
+      - WATCHTOWER_NOTIFICATIONS=shoutrrr
+      - WATCHTOWER_NOTIFICATION_URL=${DISCORD_WH}
     deploy:
       resources:
         limits:
