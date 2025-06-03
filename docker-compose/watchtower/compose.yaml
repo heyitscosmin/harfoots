@@ -7,7 +7,9 @@ services:
     command: --cleanup --debug
     environment:
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
-      - WATCHTOWER_NOTIFICATION_URL=${DISCORD_WH}
+      - WATCHTOWER_NOTIFICATION_URL="discord://${TOKEN}@${WEBHOOKID}"
+      - WATCHTOWER_NOTIFICATION_TEMPLATE = |-
+        {{range .}}{{.Time.Format "12-01-2020 15:04:05"}} ({{.Level}})':' {{.Message}}{{println}}{{end}}
     deploy:
       resources:
         limits:
