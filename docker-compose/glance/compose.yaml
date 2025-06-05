@@ -3,6 +3,7 @@ services:
     container_name: ${CONTAINER_PREFIX}glance
     image: glanceapp/glance
     restart: ${RESTART_POLICY}
+    privileged: true
     volumes:
       - ${CONFIG_PATH}/glance/config:/app/config
       - ${CONFIG_PATH}/glance/assets:/app/assets
