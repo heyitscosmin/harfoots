@@ -12,7 +12,6 @@ services:
       - ${CONFIG_PATH}/emby:/config
       - ${SSD_PATH}/tv:/data/tvshows
       - ${SSD_PATH}/movies:/data/movies
-      - ${SSD_PATH}/leaving-soon:/data/leaving-soon
     ports:
       - 8096:8096
     restart: ${RESTART_POLICY}
