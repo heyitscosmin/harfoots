@@ -1,0 +1,12 @@
+services:
+  glance:
+    container_name: ${CONTAINER_PREFIX}glance
+    image: glanceapp/glance
+    restart: ${RESTART_POLICY}
+    volumes:
+      - ${CONFIG_PATH}/glance/config:/app/config
+      - ${CONFIG_PATH}/glance/assets:/app/assets
+      # Optionally, also mount docker socket if you want to use the docker containers widget
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8080:8080
