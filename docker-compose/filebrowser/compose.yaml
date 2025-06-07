@@ -3,8 +3,7 @@ services:
     image: filebrowser/filebrowser
     container_name: ${CONTAINER_PREFIX}filebrowser
     volumes:
-      - /:/data
-      - /mnt/exdisk:/kingston
+      - /home:/srv
       - ${CONFIG_PATH}/filebrowser/filebrowser.db:/config/database.db
       - ${CONFIG_PATH}/filebrowser/settings.json:/config/settings.json
     environment:
