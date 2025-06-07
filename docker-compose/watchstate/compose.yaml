@@ -9,12 +9,3 @@ services:
             - "8002:8080" # The port which the webui will be available on.
         volumes:
             - ${CONFIG_PATH}/watchstate:/config:rw # mount current directory to container /config directory.
-        deploy:
-            resources:
-                limits:
-                    cpus: '4.0'  # Allow usage of up to 4 CPU cores
-                    memory: 1G   # Still maintain memory limit for stability
-                reservations:
-                    cpus: '0.5'  # Guarantee minimum CPU
-                    memory: 512M # Guarantee minimum memory
-        cpu_shares: 1024        # Maximum priority
