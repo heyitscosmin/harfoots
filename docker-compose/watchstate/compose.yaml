@@ -12,9 +12,9 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.3'
-                    memory: 384M
+                    cpus: '4.0'  # Allow usage of up to 4 CPU cores
+                    memory: 1G   # Still maintain memory limit for stability
                 reservations:
-                    cpus: '0.15'
-                    memory: 192M
-        cpu_shares: 512
+                    cpus: '0.5'  # Guarantee minimum CPU
+                    memory: 512M # Guarantee minimum memory
+        cpu_shares: 1024        # Maximum priority
