@@ -9,20 +9,24 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - UMASK=${UMASK}
+      - NODE_ENV=production    # Add production mode for better performance
     volumes:
       - ${CONFIG_PATH}/jellyseerr:/config
     ports:
       - 5055:5055
     dns:
-      - 1.1.1.1
-      - 8.8.8.8
+      - 192.168.1.3           # Use your local DNS server (AdGuard Home) first
+      - 1.1.1.1               # Cloudflare as backup
+    dns_opt:
+      - use-vc               # Use TCP for DNS queries
+      - no-negcache          # Don't cache negative responses
     restart: ${RESTART_POLICY}
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 384M
+          cpus: '0.6'         # Increased CPU limit
+          memory: 768M        # Increased memory limit
         reservations:
-          cpus: '0.1'
-          memory: 192M
-    cpu_shares: 512
+          cpus: '0.3'         # Higher CPU reservation
+          memory: 384M        # Higher memory reservation
+    cpu_shares: 768          # Increased priority
