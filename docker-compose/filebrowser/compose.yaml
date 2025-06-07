@@ -5,7 +5,7 @@ services:
     volumes:
       - /:/data
       - /mnt/exdisk:/kingston
-      - ${CONFIG_PATH}/filebrowser/filebrowser.db:/database.db
+      - ${CONFIG_PATH}/filebrowser/filebrowser.db:/config/database.db
       - ${CONFIG_PATH}/filebrowser/settings.json:/config/settings.json
     environment:
       - PUID=${PUID}
