@@ -4,6 +4,7 @@ services:
     container_name: ${CONTAINER_PREFIX}filebrowser
     volumes:
       - /home:/srv
+      - /mnt/exdisk:/srv
       - ${CONFIG_PATH}/filebrowser/filebrowser.db:/config/database.db
       - ${CONFIG_PATH}/filebrowser/settings.json:/config/settings.json
     environment:
