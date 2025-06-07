@@ -6,7 +6,10 @@ services:
       - /:/data
       - /mnt/exdisk:/kingston
       - ${CONFIG_PATH}/filebrowser/filebrowser.db:/database.db
-      - ${CONFIG_PATH}/filebrowser/.filebrowser.json:/.filebrowser.json
+      - ${CONFIG_PATH}/filebrowser/settings.json:/config/settings.json
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
     ports:
       - 8001:80
     restart: ${RESTART_POLICY}
