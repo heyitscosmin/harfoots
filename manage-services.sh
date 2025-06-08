@@ -75,7 +75,15 @@ execute_compose_command() {
     local timeout=300  # 5 minutes timeout
 
     if [ "$DRY_RUN" = true ]; then
-        dry_log "Would execute: docker compose --env-file '$ENV_FILE' $command in $dir"
+        dry_log "----------------------------------------"
+        dry_log "Directory: $dir"
+        dry_log "Command that would be executed:"
+        dry_log "cd $dir && \\"
+        dry_log "docker compose --env-file '$(realpath "$ENV_FILE")' \\"
+        dry_log "    $command \\"
+        dry_log "    --project-name ${CONTAINER_PREFIX:-default} \\"
+        dry_log "    --ansi never"
+        dry_log "----------------------------------------"
         return 0
     fi
 
