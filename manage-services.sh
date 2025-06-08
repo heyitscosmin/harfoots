@@ -151,6 +151,5 @@ main() {
         exit 1
     fi
 }
-
 # Execute main function with all arguments
 main "$@"
