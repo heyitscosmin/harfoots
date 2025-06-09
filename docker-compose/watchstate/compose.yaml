@@ -9,3 +9,4 @@ services:
             - "8002:8080" # The port which the webui will be available on.
         volumes:
             - ${CONFIG_PATH}/watchstate:/config:rw # mount current directory to container /config directory.
+        restart: ${RESTART_POLICY}
