@@ -13,3 +13,4 @@ services:
     ports:
       - 9891:9891
     restart: ${RESTART_POLICY}
+    platform: linux/amd64
