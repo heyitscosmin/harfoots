@@ -5,6 +5,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --cleanup --debug
+    restart: ${RESTART_POLICY}
     environment:
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
       - WATCHTOWER_NOTIFICATION_URL=discord://${TOKEN}@${WEBHOOKID}
