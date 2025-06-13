@@ -15,7 +15,7 @@ services:
       - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
     ports:
       - "8085:80"
-      - "9443:443"
+      - "4443:443"
     volumes:
       - ${CONFIG_PATH}/traefik_data:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
