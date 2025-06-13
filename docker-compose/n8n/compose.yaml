@@ -1,7 +1,7 @@
 services:
   traefik:
     image: "traefik"
-    restart: always
+    restart: ${RESTART_POLICY}
     command:
       - "--api.insecure=true"
       - "--providers.docker=true"
@@ -14,8 +14,8 @@ services:
       - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
       - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
     ports:
-      - "80:80"
-      - "443:443"
+      - "8085:80"
+      - "9443:443"
     volumes:
       - ${CONFIG_PATH}/traefik_data:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
