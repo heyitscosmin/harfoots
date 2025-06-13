@@ -14,7 +14,7 @@ services:
       - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
       - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
     ports:
-      - "8085:80"
+      - "4085:80"
       - "4443:443"
     volumes:
       - ${CONFIG_PATH}/traefik_data:/letsencrypt
