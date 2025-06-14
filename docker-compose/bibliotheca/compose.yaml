@@ -1,0 +1,15 @@
+services:
+  bibliotheca:
+    image: pickles4evaaaa/bibliotheca:latest
+    container_name: ${CONTAINER_PREFIX}bibliotheca
+    ports:
+      - "5053:5054"
+    volumes:
+      - ${CONFIG_PATH}/bibliotheca_data:/app/data
+    restart: ${RESTART_POLICY}
+    environment:
+      - TIMEZONE=Europe/Bucharest  
+      - WORKERS=6  
+
+volumes:
+  bibliotheca_data:
