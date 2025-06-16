@@ -2,6 +2,7 @@ services:
   duplicati:
     image: lscr.io/linuxserver/duplicati:latest
     container_name: ${CONTAINER_PREFIX}duplicati
+    privileged: true
     environment:
       - PUID=1000
       - PGID=1000
