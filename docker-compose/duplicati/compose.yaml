@@ -6,6 +6,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Bucharest
+      - SETTINGS_ENCRYPTION_KEY=${DUPLICATI_PASS}
     volumes:
       - ${CONFIG_PATH}/duplicati/config:/config
       - ${CONFIG_PATH}/duplicati/backups:/backups
