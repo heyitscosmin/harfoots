@@ -41,7 +41,7 @@ services:
     image: mvance/unbound:latest
     networks:
       dns_net:
-        ipv4_address: 192.168.1.99
+       ipv4_address: 192.168.1.99
     ports:
       - "5335:53/tcp"
       - "5335:53/udp"
