@@ -2,8 +2,6 @@ services:
   pihole:
     container_name: ${CONTAINER_PREFIX}pihole
     image: pihole/pihole:latest
-    networks:
-      piholeunbound-net:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -20,7 +18,11 @@ services:
       FTLCONF_webserver_api_password: ${PIHOLE_PASS}
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'all'
       FTLCONF_dns_listeningMode: 'all'
-      FTLCONF_dns_upstreams: 'unbound#5335'
+      FTLCONF_dns_upstreams: '127.0.0.1#5335' # Unbound
+      # Don't use pihole as a NTP Server
+      FTLCONF_ntp_ipv4_active: ${NTP_IPV4_ACTIVE:-true}
+      FTLCONF_ntp_ipv6_active: ${NTP_IPV6_ACTIVE:-true}
+      FTLCONF_ntp_sync_active: ${NTP_IPV6_ACTIVE:-true}
     volumes:
       # For persisting Pi-hole's databases and common configuration file
       - '${CONFIG_PATH}/etc-pihole:/etc/pihole'
@@ -35,23 +37,20 @@ services:
       # Optional, if Pi-hole should get some more processing time
       - SYS_NICE
     restart: ${RESTART_POLICY}
-    depends_on:
-      - unbound
 
   unbound:
-    container_name: ${CONTAINER_PREFIX}unbound
-    image: alpinelinux/unbound:latest
-    networks:
-      piholeunbound-net:
-        aliases:
-          - unbound
-    ports:
-      - "5335:53/tcp"
-      - "5335:53/udp"
+    container_name: unbound
+    image: mvance/unbound:latest # Change to use 'mvance/unbound-rpi:latest' on raspberry pi
+    # use pihole network stack
+    network_mode: service:pihole
     volumes:
-      - '${CONFIG_PATH}/unbound:/opt/unbound/etc/unbound'
+      # main config
+      - ${CONFIG_PATH}/unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
+      # custom config (unbound.conf.d/your-config.conf). unbound.conf includes these via wilcard include
+      - ${CONFIG_PATH}/unbound-config/unbound.conf.d:/opt/unbound/etc/unbound/unbound.conf.d:ro
     restart: ${RESTART_POLICY}
-
-networks:
-  piholeunbound-net:
-    
+    post_start:
+      # remove unused config files
+      - command: rm -f /opt/unbound/etc/unbound/a-records.conf
+      - command: rm -f /opt/unbound/etc/unbound/forward-records.conf
+      - command: rm -f /opt/unbound/etc/unbound/srv-records.conf
