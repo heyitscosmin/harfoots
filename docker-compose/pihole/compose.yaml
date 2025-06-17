@@ -42,7 +42,6 @@ services:
     container_name: unbound
     image: mvance/unbound:latest # Change to use 'mvance/unbound-rpi:latest' on raspberry pi
     # use pihole network stack
-    network_mode: service:pihole
     ports:
       - "5335:53/tcp"
       - "5335:53/udp"
