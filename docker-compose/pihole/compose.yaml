@@ -18,6 +18,7 @@ services:
       FTLCONF_webserver_api_password: ${PIHOLE_PASS}
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'all'
       FTLCONF_dns_listeningMode: 'all'
+      FTLCONF_dns_upstreams: 127.0.0.1#5335
     volumes:
       # For persisting Pi-hole's databases and common configuration file
       - '${CONFIG_PATH}/etc-pihole:/etc/pihole'
@@ -31,4 +32,16 @@ services:
       - SYS_TIME
       # Optional, if Pi-hole should get some more processing time
       - SYS_NICE
+    restart: ${RESTART_POLICY}
+    depends_on:
+      - unbound
+
+  unbound:
+    container_name: ${CONTAINER_PREFIX}unbound
+    image: mvance/unbound:latest
+    ports:
+      - "5335:53/tcp"
+      - "5335:53/udp"
+    volumes:
+      - '${CONFIG_PATH}/unbound:/opt/unbound/etc/unbound'
     restart: ${RESTART_POLICY}
