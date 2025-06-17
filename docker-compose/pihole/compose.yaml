@@ -40,7 +40,7 @@ services:
 
   unbound:
     container_name: ${CONTAINER_PREFIX}unbound
-    image: mvance/unbound:latest
+    image: alpinelinux/unbound:latest
     networks:
       piholeunbound-net:
         aliases:
