@@ -51,3 +51,7 @@ services:
     volumes:
       - '${CONFIG_PATH}/unbound:/opt/unbound/etc/unbound'
     restart: ${RESTART_POLICY}
+
+networks:
+  piholeunbound-net:
+    
