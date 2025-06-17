@@ -5,9 +5,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /root/.docker/config.json:/config.json
-    command: --cleanup --debug
+    command: --cleanup --debug --schedule "0 0 21 * * 1-5"
     restart: ${RESTART_POLICY}
     environment:
+      - TZ=Europe/Bucharest
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
       - WATCHTOWER_NOTIFICATION_URL=discord://${TOKEN}@${WEBHOOKID}
       - WATCHTOWER_NOTIFICATION_TEMPLATE="({{.Level}})':'{{.Message}}{{println}}{{end}}"
