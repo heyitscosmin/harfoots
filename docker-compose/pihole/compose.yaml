@@ -40,7 +40,7 @@ services:
 
   unbound:
     container_name: unbound
-    image: mvance/unbound:latest # Change to use 'mvance/unbound-rpi:latest' on raspberry pi
+    image: mvance/unbound-rpi:latest # Change to use 'mvance/unbound-rpi:latest' on raspberry pi
     # use pihole network stack
     network_mode: service:pihole
     volumes:
