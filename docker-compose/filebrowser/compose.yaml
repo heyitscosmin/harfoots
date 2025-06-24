@@ -5,8 +5,8 @@ services:
     volumes:
       - /home:/srv/home
       - /mnt/exdisk:/srv/exdisk
-      - ${CONFIG_PATH}/filebrowser/filebrowser.db:/config/database.db
-      - ${CONFIG_PATH}/filebrowser/settings.json:/config/settings.json
+      - ${CONFIG_PATH}/filebrowser:/database
+      - ${CONFIG_PATH}/filebrowser:/config
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
