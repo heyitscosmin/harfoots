@@ -7,3 +7,5 @@ services:
     volumes:
       - ${CONFIG_PATH}/changedetection-data:/datastore
     restart: ${RESTART_POLICY}
+    environment:
+      - PLAYWRIGHT_DRIVER_URL=ws://192.168.1.13:1337
