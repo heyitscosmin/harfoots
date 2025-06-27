@@ -2,7 +2,7 @@ services:
   redbot:
     container_name: redbot
     image: phasecorex/red-discordbot
-    restart: unless-stopped
+    restart: ${RESTART_POLICY}
     volumes:
       - ${CONFIG_PATH}/redbot:/data
     environment:
@@ -10,3 +10,5 @@ services:
       - PREFIX=.
       - TZ=Europe/Bucharest
       - PUID=1000
+    mem_limit: 384m
+    cpus: 0.3

@@ -15,3 +15,11 @@ services:
     ports:
       - 8200:8200
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.50'
+        reservations:
+          memory: 256M
+          cpus: '0.25'

@@ -19,3 +19,5 @@ services:
     ports:
       - "3000:3000"
       - "222:22"
+    mem_limit: 512m
+    cpus: 0.5

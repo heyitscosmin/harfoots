@@ -15,3 +15,5 @@ services:
     volumes:
       - ${CONFIG_PATH}/n8n_data:/home/node/.n8n
       - ${CONFIG_PATH}/n8n_data/local-files:/files
+    mem_limit: 512m
+    cpus: 1.0

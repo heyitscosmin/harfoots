@@ -13,3 +13,5 @@ services:
     ports:
       - 8001:80
     restart: ${RESTART_POLICY}
+    mem_limit: 256m
+    cpus: 0.25
