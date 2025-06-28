@@ -1,0 +1,43 @@
+volumes:
+  nextcloud_yt:
+  db_yt:
+
+services:
+  db:
+    image: mariadb:latest
+    container_name: nextcloud_db
+    hostname: nxdb 
+    restart: ${RESTART_POLICY}
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ${CONFIG_PATH}/nextcloud/nextcloud_db:/var/lib/mysql
+    networks:
+      - nxnetwork_yt
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    hostname: nxsrv
+    restart: ${RESTART_POLICY}
+    ports:
+      - "8020:80"
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ${CONFIG_PATH}/nextcloud/nextcloud:/var/www/html
+    networks:
+      - nxnetwork_yt
+
+networks:
+  nxnetwork_yt:
+    driver: bridge
