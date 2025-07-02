@@ -9,6 +9,7 @@ services:
     environment:
       - USER_UID=1000
       - USER_GID=1000
+      - GITEA__server__SSH_PORT=2221
     restart: ${RESTART_POLICY}
     networks:
       - gitea
@@ -18,6 +19,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "3000:3000"
-      - "222:22"
+      - "2221:22"
     mem_limit: 512m
     cpus: 0.5
