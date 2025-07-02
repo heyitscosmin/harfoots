@@ -4,7 +4,6 @@ services:
         # To change the user/group id associated with the tool change the following line.
         user: "0:0"
         container_name: ${CONTAINER_PREFIX}watchstate
-        restart: ${RESTART_POLICY}
         ports:
             - "8002:8080" # The port which the webui will be available on.
         volumes:
