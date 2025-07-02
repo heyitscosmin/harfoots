@@ -12,6 +12,7 @@ services:
       - NODE_ENV=production
       - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+      - N8N_RUNNERS_ENABLED=true
     volumes:
       - ${CONFIG_PATH}/n8n_data:/home/node/.n8n
       - ${CONFIG_PATH}/n8n_data/local-files:/files
