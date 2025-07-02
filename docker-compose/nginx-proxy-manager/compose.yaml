@@ -1,7 +1,7 @@
 services:
   nginx-proxy-manager:
     container_name: ${CONTAINER_PREFIX}nginx-proxy-manager
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'jc21/nginx-proxy-manager:2.12.3'
     restart: ${RESTART_POLICY}
     ports:
       - '80:80' # Public HTTP Port
