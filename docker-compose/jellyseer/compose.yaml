@@ -14,15 +14,6 @@ services:
     ports:
       - 5055:5055
     dns:
-      - 1.1.1.1               
+      - 9.9.9.9
     network_mode: bridge
     restart: ${RESTART_POLICY}
-    deploy:
-      resources:
-        limits:
-          cpus: '0.6'         # Increased CPU limit
-          memory: 768M        # Increased memory limit
-        reservations:
-          cpus: '0.3'         # Higher CPU reservation
-          memory: 384M        # Higher memory reservation
-    cpu_shares: 768          # Increased priority
