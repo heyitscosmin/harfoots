@@ -1,0 +1,11 @@
+services:
+  suggestarr:
+    image: ciuse99/suggestarr:latest
+    container_name: SuggestArr
+    restart: ${RESTART_POLICY}
+    ports:
+      - 5001:5000
+    volumes:
+      - ${CONFIG_PATH}/suggestarr/config_files:/app/config/config_files
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
