@@ -8,8 +8,8 @@ services:
       - TZ=${TZ}
     volumes:
       - ${CONFIG_PATH}/bazarr/config:/config
-      # - /path/to/movies:/movies #optional
-      # - /path/to/tv:/tv #optional
+      - ${SSD_PATH}/movies:/movies #optional
+      - ${SSD_PATH}/tv:/tv #optional
     ports:
       - 6767:6767
     restart: ${RESTART_POLICY}
