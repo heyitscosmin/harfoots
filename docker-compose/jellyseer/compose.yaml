@@ -1,6 +1,4 @@
 services:
-
-  # Jellyseerr: A request management and media discovery tool for Jellyfin. Fork of Overseerr with native Jellyfin support.
   jellyseerr:
     image: ghcr.io/hotio/jellyseerr:latest
     container_name: ${CONTAINER_PREFIX}jellyseerr
@@ -17,3 +15,12 @@ services:
       - 9.9.9.9
     network_mode: bridge
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 200M
+        reservations:
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256

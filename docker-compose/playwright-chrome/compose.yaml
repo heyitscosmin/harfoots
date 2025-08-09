@@ -18,3 +18,12 @@ services:
       - CHROME_REFRESH_TIME=600000
       - DEFAULT_BLOCK_ADS=true
       - DEFAULT_STEALTH=true
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 400M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+    cpu_shares: 512

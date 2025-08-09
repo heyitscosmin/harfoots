@@ -1,6 +1,4 @@
 services:
-
-  # Jackett: API Support for your favorite torrent trackers, translating searches into tracker-site-specific queries.
   jackett:
     image: ghcr.io/hotio/jackett:latest
     container_name: ${CONTAINER_PREFIX}jackett
@@ -18,9 +16,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 384M
+          cpus: "0.3"
+          memory: 200M
         reservations:
-          cpus: '0.1'
-          memory: 192M
-    cpu_shares: 512
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256

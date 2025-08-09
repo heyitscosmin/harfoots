@@ -12,3 +12,12 @@ services:
       - /mnt/exdisk:/mnt/exdisk
     ports:
       - 8085:8080
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 200M
+        reservations:
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256

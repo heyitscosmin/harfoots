@@ -9,3 +9,12 @@ services:
       - ${CONFIG_PATH}/suggestarr/config_files:/app/config/config_files
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-info}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 200M
+        reservations:
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256
