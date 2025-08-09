@@ -12,9 +12,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.8"
-          memory: 512M
+          cpus: "1.0"
+          memory: 1G
         reservations:
-          cpus: "0.2"
-          memory: 256M
-    cpu_shares: 768
+          cpus: "0.3"
+          memory: 512M
+    cpu_shares: 1024
