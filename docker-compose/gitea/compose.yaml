@@ -20,5 +20,12 @@ services:
     ports:
       - "3000:3000"
       - "2221:22"
-    mem_limit: 512m
-    cpus: 0.5
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 400M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+    cpu_shares: 512

@@ -1,6 +1,4 @@
 services:
-
-  # Emby: A powerful media server that organizes and streams your video, music, live TV, and photos from personal media libraries to smart TVs, streaming boxes, and mobile devices. Features a standalone server with comprehensive media management capabilities.
   emby:
     image: lscr.io/linuxserver/emby:latest
     container_name: ${CONTAINER_PREFIX}emby
@@ -18,9 +16,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
-          memory: 1G
+          cpus: "2.0"
+          memory: 1500M
         reservations:
-          cpus: '0.5'
-          memory: 512M
+          cpus: "0.5"
+          memory: 256M
     cpu_shares: 1024

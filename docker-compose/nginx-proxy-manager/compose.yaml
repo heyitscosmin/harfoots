@@ -1,21 +1,21 @@
 services:
   nginx-proxy-manager:
     container_name: ${CONTAINER_PREFIX}nginx-proxy-manager
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: "jc21/nginx-proxy-manager:latest"
     restart: ${RESTART_POLICY}
     ports:
-      - '80:80' # Public HTTP Port
-      - '443:443' # Public HTTPS Port
-      - '81:81' # Admin Web Port
+      - "80:80" # Public HTTP Port
+      - "443:443" # Public HTTPS Port
+      - "81:81" # Admin Web Port
     volumes:
       - ${CONFIG_PATH}/nginx-proxy-manager/data:/data
       - ${CONFIG_PATH}/nginx-proxy-managerletsencrypt:/etc/letsencrypt
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 256M
+          cpus: "0.3"
+          memory: 200M
         reservations:
-          cpus: '0.1'
-          memory: 128M
-    cpu_shares: 512
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256

@@ -5,5 +5,14 @@ services:
     volumes:
       - ${CONFIG_PATH}/uptime-kuma-data:/app/data
     ports:
-      - 3001:3001  
+      - 3001:3001
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 200M
+        reservations:
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256

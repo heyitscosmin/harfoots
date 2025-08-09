@@ -1,6 +1,4 @@
 services:
-
-  # qBittorrent: A cross-platform BitTorrent client with an integrated web interface.
   qbittorrent:
     image: ghcr.io/hotio/qbittorrent:latest
     container_name: ${CONTAINER_PREFIX}qbittorrent
@@ -21,9 +19,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: "1.0"
+          memory: 1G
         reservations:
-          cpus: '0.2'
+          cpus: "0.2"
           memory: 256M
-    cpu_shares: 768
+    cpu_shares: 1024

@@ -8,8 +8,17 @@ services:
       - TZ=${TZ}
     volumes:
       - ${CONFIG_PATH}/bazarr/config:/config
-      - ${SSD_PATH}/movies:/movies #optional
-      - ${SSD_PATH}/tv:/tv #optional
+      - ${SSD_PATH}/movies:/movies
+      - ${SSD_PATH}/tv:/tv
     ports:
       - 6767:6767
     restart: ${RESTART_POLICY}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 400M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+    cpu_shares: 512

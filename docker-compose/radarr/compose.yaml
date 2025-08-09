@@ -1,6 +1,4 @@
 services:
-
-  # Radarr: A fork of Sonarr to work with movies. Automatically monitors and downloads movies, handles quality upgrades, and manages your movie collection with an elegant web interface.
   radarr:
     image: ghcr.io/hotio/radarr:latest
     container_name: ${CONTAINER_PREFIX}radarr
@@ -19,9 +17,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 512M
+          cpus: "0.5"
+          memory: 400M
         reservations:
-          cpus: '0.1'
-          memory: 256M
+          cpus: "0.1"
+          memory: 128M
     cpu_shares: 512

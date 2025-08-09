@@ -1,6 +1,4 @@
 services:
-
-  # Portainer: A powerful container management interface that provides a user-friendly web UI for managing Docker environments. Features include container deployment, stack management with Docker Compose support, volume management, network configuration, and real-time container monitoring.
   portainer:
     image: portainer/portainer-ce:latest
     container_name: ${CONTAINER_PREFIX}portainer
@@ -16,9 +14,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 256M
+          cpus: "0.3"
+          memory: 200M
         reservations:
-          cpus: '0.1'
-          memory: 128M
-    cpu_shares: 512
+          cpus: "0.05"
+          memory: 64M
+    cpu_shares: 256
