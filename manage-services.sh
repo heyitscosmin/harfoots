@@ -83,8 +83,15 @@ execute_compose_command() {
     
     cd "$dir" || error_exit "Failed to change directory to $dir"
     
-    # Execute command with timeout
-    timeout $timeout docker compose --env-file "$ENV_FILE" $command
+    # Execute command with timeout, adding -d flag for up command
+    local compose_cmd="$command"
+    if [[ "$command" == "up" ]]; then
+        compose_cmd="up -d"
+    elif [[ "$command" == "restart" ]]; then
+        compose_cmd="restart"
+    fi
+    
+    timeout $timeout docker compose --env-file "$ENV_FILE" $compose_cmd
     local status=$?
     
     if [ $status -eq 124 ]; then
