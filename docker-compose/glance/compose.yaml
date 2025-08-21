@@ -12,7 +12,3 @@ services:
       - /mnt/exdisk:/mnt/exdisk
     ports:
       - 8085:8080
-    deploy:
-      resources:
-        limits:
-          memory: 512M
