@@ -17,7 +17,8 @@ services:
       TZ: "Europe/Bucharest"
       FTLCONF_webserver_api_password: ${PIHOLE_PASS}
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'all'
-      FTLCONF_dns_listeningMode: "all"
+      FTLCONF_dns_listeningMode: "SINGLE"
+      FTLCONF_dns_interface: 'eth0'
     volumes:
       # For persisting Pi-hole's databases and common configuration file
       - "${CONFIG_PATH}/etc-pihole:/etc/pihole"

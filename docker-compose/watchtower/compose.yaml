@@ -12,7 +12,3 @@ services:
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
       - WATCHTOWER_NOTIFICATION_URL=discord://${TOKEN}@${WEBHOOKID}
       - WATCHTOWER_NOTIFICATION_TEMPLATE="({{.Level}})':'{{.Message}}{{println}}{{end}}"
-    deploy:
-      resources:
-        limits:
-          memory: 512M
