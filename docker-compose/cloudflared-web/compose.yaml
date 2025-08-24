@@ -8,7 +8,4 @@ services:
       - ${CONFIG_PATH}/cloudflared/config:/config
     restart: ${RESTART_POLICY}
     network_mode: host
-    deploy:
-      resources:
-        limits:
-          memory: 512M
+

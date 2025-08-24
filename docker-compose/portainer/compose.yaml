@@ -11,7 +11,4 @@ services:
     environment:
       - TZ=${TZ}
     restart: ${RESTART_POLICY}
-    deploy:
-      resources:
-        limits:
-          memory: 512M
+

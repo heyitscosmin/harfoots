@@ -14,7 +14,4 @@ services:
     ports:
       - 7878:7878
     restart: ${RESTART_POLICY}
-    deploy:
-      resources:
-        limits:
-          memory: 768M
+

@@ -20,7 +20,4 @@ services:
     ports:
       - "3000:3000"
       - "2221:22"
-    deploy:
-      resources:
-        limits:
-          memory: 768M
+

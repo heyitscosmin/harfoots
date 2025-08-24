@@ -7,7 +7,4 @@ services:
     ports:
       - 3001:3001
     restart: ${RESTART_POLICY}
-    deploy:
-      resources:
-        limits:
-          memory: 512M
+

@@ -15,7 +15,4 @@ services:
       - 9.9.9.9
     network_mode: bridge
     restart: ${RESTART_POLICY}
-    deploy:
-      resources:
-        limits:
-          memory: 512M
+

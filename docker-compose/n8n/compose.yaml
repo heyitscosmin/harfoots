@@ -16,7 +16,4 @@ services:
     volumes:
       - ${CONFIG_PATH}/n8n_data:/home/node/.n8n
       - ${CONFIG_PATH}/n8n_data/local-files:/files
-    deploy:
-      resources:
-        limits:
-          memory: 1.2G
+
