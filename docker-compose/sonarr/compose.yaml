@@ -14,3 +14,4 @@ services:
     ports:
       - 8989:8989
     restart: ${RESTART_POLICY}
+    network_mode: host
