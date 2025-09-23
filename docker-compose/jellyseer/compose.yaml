@@ -1,6 +1,6 @@
 services:
   jellyseerr:
-    image: ghcr.io/hotio/jellyseerr:latest
+    image: fallenbagel/jellyseerr:latest
     container_name: ${CONTAINER_PREFIX}jellyseerr
     environment:
       - PUID=${PUID}
@@ -15,4 +15,3 @@ services:
       - 9.9.9.9
     network_mode: bridge
     restart: ${RESTART_POLICY}
-

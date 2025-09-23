@@ -1,6 +1,6 @@
 services:
   radarr:
-    image: ghcr.io/hotio/radarr:latest
+    image: lscr.io/linuxserver/radarr:latest
     container_name: ${CONTAINER_PREFIX}radarr
     environment:
       - PUID=${PUID}
@@ -14,4 +14,3 @@ services:
     ports:
       - 7878:7878
     restart: ${RESTART_POLICY}
-

@@ -1,6 +1,6 @@
 services:
   qbittorrent:
-    image: ghcr.io/hotio/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:latest
     container_name: ${CONTAINER_PREFIX}qbittorrent
     environment:
       - PUID=${PUID}
@@ -16,4 +16,3 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: ${RESTART_POLICY}
-
