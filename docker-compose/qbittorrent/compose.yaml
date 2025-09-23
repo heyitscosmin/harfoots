@@ -11,6 +11,8 @@ services:
     volumes:
       - ${CONFIG_PATH}/qbittorrent:/config
       - ${SSD_PATH}/downloads:/data/downloads
+      # Override resolv.conf to use faster DNS servers
+      - ./resolv.conf:/etc/resolv.conf:ro
     ports:
       - 8080:8080
       - 6881:6881
