@@ -14,3 +14,4 @@ services:
     ports:
       - 7878:7878
     restart: ${RESTART_POLICY}
+    network_mode: host
