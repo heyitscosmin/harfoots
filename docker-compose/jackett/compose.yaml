@@ -13,3 +13,4 @@ services:
     ports:
       - 9117:9117
     restart: ${RESTART_POLICY}
+    network_mode: host
