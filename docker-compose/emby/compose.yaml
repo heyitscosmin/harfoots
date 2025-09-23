@@ -13,4 +13,5 @@ services:
     ports:
       - 8096:8096
     restart: ${RESTART_POLICY}
+    network_mode: host
 
