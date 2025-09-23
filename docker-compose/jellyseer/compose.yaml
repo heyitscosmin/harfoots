@@ -8,7 +8,7 @@ services:
       - TZ=${TZ}
       - UMASK=${UMASK}
     volumes:
-      - ${CONFIG_PATH}/jellyseerr:/config
+      - ${CONFIG_PATH}/jellyseerr:/app/config
     ports:
       - 5055:5055
     dns:
