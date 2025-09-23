@@ -10,6 +10,5 @@ services:
       - ${CONFIG_PATH}/emby:/config
       - ${SSD_PATH}/tv:/data/tvshows
       - ${SSD_PATH}/movies:/data/movies
-    ports:
-      - 8096:8096
+    network_mode: host
     restart: ${RESTART_POLICY}
