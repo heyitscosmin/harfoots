@@ -28,3 +28,4 @@ services:
       # This is the location of CWA's app.db, which contains authentication
       # details. Comment out to disable authentication
       #- /cwa/config/path/app.db:/auth/app.db:ro
+    network_mode: host
