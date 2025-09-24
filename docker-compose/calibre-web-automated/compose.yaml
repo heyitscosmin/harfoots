@@ -33,4 +33,3 @@ services:
     # cap_add:
     #   - NET_BIND_SERVICE
     restart: ${RESTART_POLICY}
-    network_mode: host
