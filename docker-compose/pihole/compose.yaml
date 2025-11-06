@@ -2,16 +2,23 @@ services:
   pihole:
     container_name: ${CONTAINER_PREFIX}pihole
     image: pihole/pihole:latest
-    network_mode: host
-    # With host networking, port mappings are not needed
-    # ports are directly exposed on the host
+    ports:
+      # DNS Ports
+      - "53:53/tcp"
+      - "53:53/udp"
+      # Default HTTP Port
+      - "80:80/tcp"
+      # Default HTTPs Port. FTL will generate a self-signed certificate
+      - "443:443/tcp"
+      # Uncomment the line below if you are using Pi-hole as your DHCP server
+      #- "67:67/udp"
+      # Uncomment the line below if you are using Pi-hole as your NTP server
+      #- "123:123/udp"
     environment:
       TZ: "Europe/Bucharest"
       FTLCONF_webserver_api_password: ${PIHOLE_PASS}
       # With host networking, we can use 'all' listening mode to see real client IPs
       FTLCONF_dns_listeningMode: "all"
-      # Listen on all interfaces with host networking
-      FTLCONF_dns_interface: 'all'
       # Set the web interface port explicitly
       FTLCONF_webserver_port: 8089
     volumes:
