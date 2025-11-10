@@ -5,7 +5,10 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ${CONFIG_PATH}/changedetection-data:/datastore
+      - ${CONFIG_PATH}/changedetection-data/config:/config
     restart: ${RESTART_POLICY}
     environment:
       - PLAYWRIGHT_DRIVER_URL=ws://192.168.1.33:1337
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
