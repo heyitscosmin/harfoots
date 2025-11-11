@@ -6,8 +6,6 @@ services:
     environment:
       TZ: "Europe/Bucharest"
       FTLCONF_webserver_api_password: ${PIHOLE_PASS}
-      # With host networking, we can use 'all' listening mode to see real client IPs
-      FTLCONF_dns_listeningMode: "all"
       # Set the web interface port explicitly  
       FTLCONF_webserver_port: 8089
     volumes:
