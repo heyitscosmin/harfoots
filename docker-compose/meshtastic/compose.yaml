@@ -1,0 +1,7 @@
+services:
+  meshtastic-web:
+    image: ghcr.io/meshtastic/web
+    container_name: Meshtastic-Web
+    ports:
+      - "8060:8080"
+    restart: ${RESTART_POLICY}
