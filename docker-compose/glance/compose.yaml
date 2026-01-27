@@ -9,6 +9,7 @@ services:
       - ${CONFIG_PATH}/glance/assets:/app/assets
       # Optionally, also mount docker socket if you want to use the docker containers widget
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /mnt/exdisk:/mnt/exdisk
+      - /Volumes/Expansion:/Volumes/Expansion
+      - /Volumes/KINGSTON:/Volumes/KINGSTON
     ports:
-      - 8085:8080
+      - 8086:8080
